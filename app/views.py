@@ -32,3 +32,47 @@ def new_users(request):
 def info_users(request,id):
     info = Xusers.objects.get(id=id)
     return render(request, 'users_info.html', {'i':info})
+
+
+def edit(request,id):
+    A = Xusers.objects.get(id=id)
+    return render(request, 'update.html', {'A':A})
+
+
+# Updates information Specific id from database
+def update(request,id):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        role = request.POST.get('role')
+        update = Xusers.objects.get(id=id)
+        update.Name = name
+        update.Email = email
+        update.Role = role
+        update.save()
+    return render(request, 'users.html')
+pass
+
+
+# Delete Specific id from database
+def delete(request,id):
+    user = Xusers.objects.get(id=id)
+    user.delete()
+    return render(request,'user.html')
+
+# error handling when a user or resource is not found
+def error_404(request, exception):
+    return render(request,'404.html')
+
+
+# search bar 
+def search(request):
+    if request.method=="POST":
+        S = request.POST.get("search")
+        if Xusers.objects.filter(Name=S):   
+            con = Xusers.objects.filter(Name=S)
+            context={"con":con}             
+            return render(request,'search.html',context)
+        else:
+            return render(request, '404.html' )
+    return render(request, 'search.html')    
