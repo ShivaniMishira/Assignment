@@ -9,9 +9,15 @@
     <form action="{% url 'update' A.id %}" method="POST">
         {% csrf_token %} 
         <div class="row mb-4 t-5" >
-          <label for="name" class="col-sm-2 col-form-label">Name: </label>
+          <label for="name" class="col-sm-2 col-form-label">ID: </label>
           <div class="col-sm-7">
-            <input type="text" value="{{A.Name}}" class="form-control" name="name" id="name">
+            <input type="id" value="{{A.id}}" class="form-control" name="id" id="id">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="email" class="col-sm-2 col-form-label">Email: </label>
+          <div class="col-sm-7">
+            <input type="text" value="{{A.Email}}" name="name" class="form-control" id="name">
           </div>
         </div>
         <div class="row mb-3">
