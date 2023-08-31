@@ -3,3 +3,4 @@ from .models import Xusers
 
 # Register your models here.
 
+admin.site.register(Xusers)
