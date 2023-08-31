@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from .models import Xusers
+from django.contrib import messages
 
 # front web page
 def index(request):
@@ -26,6 +27,7 @@ def new_users(request):
         Role = request.POST.get('role')
         new = Xusers(Name=Name, Email=Email, Role=Role)
         new.save()
+        messages.success(request, "New User Added." )
     return render(request, 'new_users.html')
 
 # show data of single user from database
@@ -50,6 +52,7 @@ def update(request,id):
         update.Email = email
         update.Role = role
         update.save()
+        messages.success(request, " User Info Updated." )
     return render(request, 'users.html')
 pass
 
@@ -58,7 +61,8 @@ pass
 def delete(request,id):
     user = Xusers.objects.get(id=id)
     user.delete()
-    return render(request,'user.html')
+    messages.warning(request, "User Delete.")
+    return render(request,'users.html')
 
 # error handling when a user or resource is not found
 def error_404(request, exception):
