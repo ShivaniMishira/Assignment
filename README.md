@@ -39,21 +39,21 @@ To query users by id, you can write:<br>
 user = Xusers.object.filter_by(id=id)<br>
 or user = Xusers.object.get(id=id)<br>
 This is equivalent to writing:<br>
-SELECT * FROM books WHERE id = id;<br>
-To insert a new user into the database, you can write:<br><br>
+SELECT * FROM books WHERE id = id;<br><br>
+To insert a new user into the database, you can write:<br>
 user = Xuser(Name=Name, Email=Email, Role=Role)<>
 user.save()<br>
 This is equivalent to writing:<br>
-INSERT INTO users (Name, Email, Role) VALUES (Name, Email, Role);<br>
-To update an existing user in the database, you can write:<br><br>
+INSERT INTO users (Name, Email, Role) VALUES (Name, Email, Role);<br><br>
+To update an existing user in the database, you can write:<br>
 user = Xusers.objects.get(id=id)<br>
 user.Name = Name<br>
 user.Email = Email<br>
 user.Role = Role<br>
 user.save()<br>
-This is equivalent to writing:<br>
+This is equivalent to writing:<br><br>
 UPDATE users SET Name = Name, Email = Email, Role = Role WHERE id = id;<br>
-To delete a user from the database, you can write:<br><br>
+To delete a user from the database, you can write:<br>
 user = Xuser.objects.get(id=id)<br>
 user.delete()<br>
 This is equivalent to writing:<br>
