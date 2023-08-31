@@ -30,22 +30,22 @@ The web application has five pages :<br>
 
 
 <h3>SQL Queries</h3>
-This project uses MySQL to interact with the database.<br>
+This project uses MySQL to interact with the database.<br><br>
 to query all books from the database, you can write:<br>
 users = Xuser.object.all()<br>
 This is equivalent to writing:<br>
-SELECT * FROM users;<br>
+SELECT * FROM users;<br><br>
 To query users by id, you can write:<br>
 user = Xusers.object.filter_by(id=id)<br>
 or user = Xusers.object.get(id=id)<br>
 This is equivalent to writing:<br>
 SELECT * FROM books WHERE id = id;<br>
-To insert a new user into the database, you can write:<br>
+To insert a new user into the database, you can write:<br><br>
 user = Xuser(Name=Name, Email=Email, Role=Role)<>
 user.save()<br>
 This is equivalent to writing:<br>
 INSERT INTO users (Name, Email, Role) VALUES (Name, Email, Role);<br>
-To update an existing user in the database, you can write:<br>
+To update an existing user in the database, you can write:<br><br>
 user = Xusers.objects.get(id=id)<br>
 user.Name = Name<br>
 user.Email = Email<br>
@@ -53,7 +53,7 @@ user.Role = Role<br>
 user.save()<br>
 This is equivalent to writing:<br>
 UPDATE users SET Name = Name, Email = Email, Role = Role WHERE id = id;<br>
-To delete a user from the database, you can write:<br>
+To delete a user from the database, you can write:<br><br>
 user = Xuser.objects.get(id=id)<br>
 user.delete()<br>
 This is equivalent to writing:<br>
